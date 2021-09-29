@@ -1,0 +1,35 @@
+<h1>Cart</h1>
+<div id="cart">
+  {{#if courses.length}}
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Count</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each courses}}
+        <tr>
+          <td>{{courseID.title}}</td>
+          <td>{{count}}</td>
+          <td>
+            <button class="btn btn-small js-remove" data-id="{{courseID._id}}" data-csrf="{{@root.csrf}}">Remove</button>
+          </td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+    <p><strong>Price: </strong><span class="price">{{price}}</span></p>
+
+    <form action="/orders" method="post">
+      <input type="hidden" name="_csrf" value="{{csrf}}">
+      <button type="submit" class="btn">
+        Make Order
+      </button>
+    </form>
+  {{else}}
+  <p>Empty Cart</p>
+  {{/if}}
+</div>
