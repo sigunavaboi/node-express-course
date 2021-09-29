@@ -55,8 +55,19 @@ app.use(flash());
 app.use(helmet({
   contentSecurityPolicy: {
     directives: {
-      ...helmet.contentSecurityPolicy.getDefaultDirectives(),
-      'connect-src': ["'self'", 'cdnjs.cloudflare.com'],
+      defaultSrc: ["'self'"],
+      blockAllMixedContent: [],
+      fontSrc: ["'self'", 'https:', 'data:'],
+      frameAncestors: ["'self'", 'https://accounts.google.com/'],
+      frameSrc: ["'self'", 'https://accounts.google.com/'],
+      imgSrc: ["'self'", 'data:'],
+      objectSrc: ["'self'", 'blob:'],
+      mediaSrc: ["'self'", 'blob:', 'data:'],
+      scriptSrc: ["'self'", 'https://apis.google.com'],
+      scriptSrcAttr: ["'none'"],
+      styleSrc: ["'self'", 'https:', "'unsafe-inline'"],
+      upgradeInsecureRequests: [],
+      connectSrc: ["'self'", 'https://sigunawaboi-course-shop.herokuapp.com'],
     },
   },
 }));
