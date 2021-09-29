@@ -52,7 +52,14 @@ app.use(session({
 app.use(fileMiddleware.single('avatar'));
 app.use(csrf());
 app.use(flash());
-app.use(helmet());
+app.use(helmet({
+  contentSecurityPolicy: {
+    directives: {
+      ...helmet.contentSecurityPolicy.getDefaultDirectives(),
+      'connect-src': ["'self'", 'cdnjs.cloudflare.com'],
+    },
+  },
+}));
 app.use(compression());
 app.use(varMiddleware);
 app.use(userMiddleware);
