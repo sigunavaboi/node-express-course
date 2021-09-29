@@ -7,11 +7,10 @@ const ALLOWED_TYPES = [
 
 const storage = multer.diskStorage({
   destination(req, file, callback) {
-    console.log(req, file);
     callback(null, 'images');
   },
   filename(req, file, callback) {
-    callback(null, new Date().toISOString().replace(/:/g, '-') + '-' + file.originalname);
+    callback(null, Date.now() + '-' + file.originalname);
   },
 });
 
