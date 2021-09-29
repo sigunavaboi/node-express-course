@@ -60,7 +60,7 @@ app.use(helmet({
         fontSrc: ["'self'", 'https:', 'data:'],
         frameAncestors: ["'self'", 'https://accounts.google.com/'],
         frameSrc: ["'self'", 'https://accounts.google.com/'],
-        imgSrc: ["'self'", 'data:'],
+        imgSrc: ["'self'", 'data:', 'https:'],
         objectSrc: ["'self'", 'blob:'],
         mediaSrc: ["'self'", 'blob:', 'data:'],
         scriptSrc: ["'self'", 'https://cdnjs.cloudflare.com/'],
